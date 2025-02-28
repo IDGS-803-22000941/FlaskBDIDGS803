@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flowbite Flask</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='css/output.css')}}">
+</head>
+
+<body>
+    <nav class="bg-white py-4">
+        <div class="flex items-center justify-center min-h-scree">
+
+            {%with messages=get_flashed_messages()%}
+            {%if messages%}
+            {%for message in messages%}
+            <div class="bd-red-500 text-white px-4 rounded-lg">
+                {{message}}
+            </div>
+            {%endfor%}
+            {%endif%}
+            {%endwith%}
+
+            {% block container%}
+
+            {% endblock %}
+
+        </div>
+
+    </nav>
+</body>
+
+</html>
